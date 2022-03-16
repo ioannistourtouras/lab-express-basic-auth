@@ -19,6 +19,8 @@ const requireLogin = (req, res, next) => {
   const objectWeWantToExport = {
     requireLogin,
     requireToBeLoggedOut,
-  };
+  }; 
+
+
 
   module.exports = objectWeWantToExport;

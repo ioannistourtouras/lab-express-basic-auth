@@ -2,6 +2,7 @@ const router = require("express").Router();
 const User = require("../models/User.model")
 const bcrypt = require("bcrypt")
 const { requireToBeLoggedOut } = require("../middlewares/route-guard")
+const { notAllowedToSeeMainFunnyCat } = require("../middlewares/route-guard2")
 /* GET home page */
 router.get("/", (req, res, next) => {
   res.render("index");
@@ -60,6 +61,12 @@ router.post("/logout", (req, res) => {
 router.get("/profile", (req, res, next) => {
   res.render("profile");
 });
+
+
+router.use("/main", notAllowedToSeeMainFunnyCat);
+router.get("/main", (req, res) => {
+  res.render("main");
+})
 
 
 
