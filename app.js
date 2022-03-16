@@ -13,6 +13,11 @@ const express = require('express');
 // https://www.npmjs.com/package/hbs
 const hbs = require('hbs');
 
+const path = require("path")
+const partialsDirectory = path.join(__dirname, "views", "partials");
+console.log(partialsDirectory);
+hbs.registerPartials(partialsDirectory);
+
 const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most middlewares
